@@ -14,9 +14,16 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function createDreamTeam(members) {
-  // remove line with error and write your code here
+  result = [];
+  for (let name of members) {
+    if (typeof(members) == 'object' && typeof (name) == 'string') {
+      result.push(name[0].toUpperCase());
+      result.sort();
+    }
+  }
+  return result.join('')
 }
-
+/* AssertionError: expected '  DET' to equal 'BDETV'*/
 
 module.exports = {
   createDreamTeam
