@@ -22,7 +22,6 @@ function getCommonCharacterCount(s1, s2 ) {
         }
     }
     return count;
-  // remove line with error and write your code here
 }
 
 module.exports = {
