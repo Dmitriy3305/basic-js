@@ -1,4 +1,4 @@
-const { NotImplementedError } = require('../extensions/index.js');
+const { NotImplementedError } = require ('../extensions/index.js');
 
 /**
  * Create name of dream team based on the names of its members
@@ -14,14 +14,19 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function createDreamTeam(members) {
-  result = [];
-  for (let name of members) {
-    if (typeof(members) == 'object' && typeof (name) == 'string') {
-      result.push(name[0].toUpperCase());
-      result.sort();
+  let result = [];
+  if (Array.isArray(members)) {
+    for (let name of members) { 
+      if (typeof name == 'string') {
+        name = name.trimStart();
+        result.push(name[0].toUpperCase());
+        result.sort();
+      }
     }
+    return result.join('')
+  } else {
+    return false
   }
-  return result.join('')
 }
 /* AssertionError: expected '  DET' to equal 'BDETV'*/
 
